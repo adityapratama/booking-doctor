@@ -1,0 +1,32 @@
+<%= form_with(model: schedule, url: [:admin, @hospital, @doctor, schedule], local: true) do |form| %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+        <% schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :day %>
+    <%= form.select :day, Schedule.days.map {|key, value| [key.humanize, key]} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.text_field :start_time, ignore_date: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.text_field :end_time, ignore_date: true%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<h1><%= @hospital.name %></h1>
+
+<% if @hospital.doctors.present? %>
+  <div class="list-group">
+    <%= render @hospital.doctors %>
+  </div>
+<% else %>
+  <p> There is no doctors registered in <strong><%= @hospital.name %></strong> </p>
+<% end %>

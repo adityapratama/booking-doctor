@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Doctor:</strong>
+  <%= @schedule.doctor_id %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @schedule.day %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @schedule.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @schedule.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_admin_hospital_doctor_schedule_path(@schedule) %> |
+<%= link_to 'Back', admin_hospital_doctor_schedules_path %>

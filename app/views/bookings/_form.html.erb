@@ -1,0 +1,30 @@
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+        <% booking.errors.full_messages.each do |message| %>
+          <div class="alert alert-danger" role="alert"><%= message %></div>
+        <% end %>
+  <% end %>
+
+  <%= form.hidden_field :doctor_id, value: @doctor.id%>
+	<div class="form-group">
+		<%= form.label :doctor %>
+		<%= form.text_field :doctor_name, value: @doctor.name, disabled:  true, class: 'form-control'%>
+	</div>
+  <div class="form-group">
+    <%= form.label :start_date %>
+    <%= form.text_field :start_date, value: @start_date, readonly:  true, class: 'form-control'%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :end_date %>
+    <%= form.text_field :end_date, value: @end_date, readonly: true, class: 'form-control'%>
+  </div>
+  
+  <% if logged_in? %>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-default'%>
+    </div>
+  <% else %>
+    <p> You should log in first for <strong>booking</strong> </p>
+  <% end %>
+<% end %>

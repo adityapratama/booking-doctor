@@ -1,0 +1,6 @@
+<h1>Editing Schedule</h1>
+
+<%= render 'form', schedule: @schedule %>
+
+<%= link_to 'Show', [:admin, @hospital, @doctor, @schedule] %> |
+<%= link_to 'Back', admin_hospital_doctor_schedules_path %>

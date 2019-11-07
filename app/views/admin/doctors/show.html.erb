@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @doctor.name %>
+</p>
+
+<p>
+  <strong>Speciality:</strong>
+  <%= @doctor.speciality %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doctor.schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.day %></td>
+        <td><%= schedule.start_time %></td>
+        <td><%= schedule.end_time %></td>
+        <td><%= link_to 'Show', admin_hospital_doctor_schedule_path(@hospital, @doctor, schedule) %></td>
+        <td><%= link_to 'Edit', edit_admin_hospital_doctor_schedule_path(@hospital, @doctor, schedule) %></td>
+        <td><%= link_to 'Destroy', [:admin, @hospital, @doctor, schedule], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Schedule', new_admin_hospital_doctor_schedule_path(@hospital, @doctor) %> |
+<%= link_to 'Edit', edit_admin_hospital_doctor_path(@hospital, @doctor) %> |
+<%= link_to 'Back', admin_hospital_doctors_path %>

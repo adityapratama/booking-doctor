@@ -1,0 +1,18 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<h1><%= @doctor.name %></h1>
+
+<h3><%= @today.strftime("%B") %></h3>
+
+<ul class='list-group'>
+  <% @days.each do |day|%>
+    <li class='list-group-item'><%= day[:day].strftime('%d-%A') %></li>
+    <div class='list-group'>
+      <% day[:schedules].each do |schedule|%>
+          <%= link_to "#{schedule.start_time} - #{schedule.end_time}", "/pages/bookings/new?doctor_id=#{@doctor.id}&start_date=#{day[:day]} #{schedule.start_time}&end_date=#{day[:day]} #{schedule.end_time}", class: 'list-group-item'%>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>

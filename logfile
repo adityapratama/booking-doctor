@@ -1,0 +1,14 @@
+LOG:  database system was shut down at 2019-11-05 20:13:26 WIB
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  syntax error at or near "hermina" at character 66
+STATEMENT:  SELECT "hospitals".* FROM "hospitals" WHERE (LOWER(name) LIKE '%'hermina'%')
+ERROR:  column "hermina" does not exist at character 63
+STATEMENT:  SELECT "hospitals".* FROM "hospitals" WHERE (LOWER(name) LIKE hermina)
+ERROR:  column bookings.start_time does not exist at character 71
+HINT:  Perhaps you meant to reference the column "bookings.start_date".
+STATEMENT:  SELECT COUNT(*) FROM "bookings" WHERE "bookings"."doctor_id" = $1 AND "bookings"."start_time" = $2 AND "bookings"."end_time" = $3
+ERROR:  column bookings.start_time does not exist at character 71
+HINT:  Perhaps you meant to reference the column "bookings.start_date".
+STATEMENT:  SELECT COUNT(*) FROM "bookings" WHERE "bookings"."doctor_id" = $1 AND "bookings"."start_time" = $2 AND "bookings"."end_time" = $3
