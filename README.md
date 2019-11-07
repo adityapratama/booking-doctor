@@ -22,3 +22,5 @@ rake db:seed
 ```
 rails s
 ```
+
+[Demo](https://booking-doctor-schedule.herokuapp.com)
