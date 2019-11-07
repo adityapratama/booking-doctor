@@ -1,19 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>References:</strong>
-  <%= @booking.references %>
+  <strong>Doctor Name:</strong>
+  <%= @booking.doctor.name %>
 </p>
 
 <p>
-  <strong>References:</strong>
-  <%= @booking.references %>
+  <strong>Start Date:</strong>
+  <%= @booking.start_date %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @booking.date %>
+  <strong>End Date:</strong>
+  <%= @booking.end_date %>
 </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to 'Back', bookings_path, class: 'btn btn-default' %>

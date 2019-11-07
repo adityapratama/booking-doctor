@@ -3,6 +3,7 @@ module Admin
     before_action :set_schedule, only: [:show, :edit, :update, :destroy]
     before_action :set_hospital
     before_action :set_doctor
+    before_action :admin_authorized
 
     # GET /schedules
     # GET /schedules.json

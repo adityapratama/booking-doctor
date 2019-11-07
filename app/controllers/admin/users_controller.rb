@@ -1,6 +1,7 @@
 module Admin
   class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
+    before_action :admin_authorized
 
     # GET /users
     # GET /users.json

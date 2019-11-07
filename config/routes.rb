@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   resources :pages do
     collection do
-      resources :bookings
+      resources :bookings do
+        collection do
+          get 'my', to: 'pages#my_bookings'
+        end
+      end
     end
   end
   namespace :admin do

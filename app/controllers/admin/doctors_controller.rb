@@ -2,6 +2,7 @@ module Admin
   class DoctorsController < ApplicationController
     before_action :set_doctor, only: [:edit, :update, :destroy]
     before_action :set_hospital
+    before_action :admin_authorized
 
     # GET /doctors
     # GET /doctors.json

@@ -21,9 +21,14 @@ class PagesController < ApplicationController
       }
     end
   end
-  
+
+  def my_bookings
+    @bookings = Booking.includes(:doctor).where(user: current_user)
+    render 'bookings/index'
+  end
+
   private
-  
+
   def set_hospital
     @hospital = Hospital.includes(:doctors).find(params[:hospital_slug].to_i)
   end
