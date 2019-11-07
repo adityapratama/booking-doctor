@@ -23,4 +23,4 @@ rake db:seed
 rails s
 ```
 
-[Demo](https://booking-doctor-schedule.herokuapp.com)
+[Demo](https://booking-doctor-schedule.herokuapp.com/?keyword=hermina&commit=Search)
